@@ -26,11 +26,35 @@ def isPalindrome(s : str) -> bool:
 
     return True
 
+def isPalindrome_v2(s : str) -> bool:
+    i1 = 0
+    i2 = len(s)-1
+
+    p = s.lower()
+    
+    while i1 < i2:
+        if p[i1].isalnum() and p[i2].isalnum():
+            if p[i1] == p[i2]:
+                i1 += 1
+                i2 -= 1
+            else:
+                return False
+        elif not p[i1].isalnum():
+            i1+=1
+        elif not p[i2].isalnum():
+            i2-=1
+        else:
+            i1 += 1
+            i2 -= 1
+    return True
+
+
+
 if __name__ == "__main__":
     s = "A man, a plan, a canal: Panama"
     s2 = "Fernando !"
-    assert isPalindrome(s) == True
-    assert isPalindrome(s2) == False
+    assert isPalindrome_v2(s) == True
+    assert isPalindrome_v2(s2) == False
 
 
 # Tempo: 18min14s | Solução/vídeo consultado: não

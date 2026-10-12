@@ -17,11 +17,24 @@ def twoSum(numbers: List[int], target: int) -> List[int]:
         else:
             index2 -= 1
 
+def twoSum_v2(numbers: List[int], target: int) -> List[int]:
+    index1 = 0
+    index2 = len(numbers)-1
+
+    while True:
+        s = numbers[index1] + numbers[index2]
+
+        if s == target:
+            return [index1+1, index2+1]
+        elif s < target:
+            index1+=1
+        else:
+            index2-=1
 
 if __name__ == "__main__":
-    numbers = [5,25,75]
-    target = 100
-    assert twoSum(numbers, target) == [2,3]
+    numbers = [1, 4, 5, 7, 8, 13]
+    target = 12
+    assert twoSum_v2(numbers, target) == [2,5]
 
 
 # Tempo: 25min estourados | Solução/vídeo consultado: sim, mas so vi o raciocinio dele, nao vi ele escrevendo o codigo. Escrevi a solucao de cabeca.
@@ -65,3 +78,4 @@ if __name__ == "__main__":
 #         else:
 #             index1 += 1
 #             index2 = index1+1
+

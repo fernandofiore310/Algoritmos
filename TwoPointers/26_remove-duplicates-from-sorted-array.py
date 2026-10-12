@@ -23,6 +23,21 @@ def remove_duplicates(nums: List[int]) -> int:
 
     return len(nums)
 
+def remove_duplicates_v2(nums: List[int]) -> int:
+    lista_retorno = []
+    if len(nums) == 1:
+        return nums
+    
+    i1 = 0
+    i2 = 1
+    k = 0
+
+    while True:
+        n1 = nums[i1]
+        n2 = nums[i2]
+
+        
+
 if __name__ == "__main__":
     lista = [1,2,3,4,4,5,6,6,6,7]
     lista2 = ['G', 'P', 'T']
