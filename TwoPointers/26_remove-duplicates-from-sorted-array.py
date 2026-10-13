@@ -24,25 +24,28 @@ def remove_duplicates(nums: List[int]) -> int:
     return len(nums)
 
 def remove_duplicates_v2(nums: List[int]) -> int:
-    lista_retorno = []
-    if len(nums) == 1:
-        return nums
-    
-    i1 = 0
-    i2 = 1
-    k = 0
+    # A lista esta ordenada, logo, se um numero esta repetido, sua copia esta a sua direita.
+    # Nesse codigo, tive problema com os ultimos numeros da lista, principalmente quando sao repetidos
+    # Alem disso, coloquei um loop dentro do outro, mas acredito que esse esquema nao altera a complexidade O(n) dele.
+    i1, i2 = 1 , 1
 
-    while True:
-        n1 = nums[i1]
-        n2 = nums[i2]
+    while i2 < len(nums):
+        if nums[i2] != nums[i2-1]:
+            nums[i1] = nums[i2]
+            i1 += 1
+            i2 += 1
+        else:
+            i2 += 1
 
-        
+    return i1
 
 if __name__ == "__main__":
-    lista = [1,2,3,4,4,5,6,6,6,7]
-    lista2 = ['G', 'P', 'T']
-    assert remove_duplicates(lista) == 7
-    # assert inverte_string(lista2) == ['T', 'P', 'G']
+    lista = [1,2,4,4,4,5,6,6,7,7]
+    lista2 = [1]
+    lista3 = [0,0,0,0,0,0]
+    assert remove_duplicates_v2(lista) == 6
+    assert remove_duplicates_v2(lista2) == 1
+    assert remove_duplicates_v2(lista3) == 1
 
 
 # Tempo: 15min15s | Solução/vídeo consultado: não
