@@ -1,4 +1,13 @@
 # Esperado antes: a abordagem vai ser via 2 ponteiros, com complexidade O(n)
+# Tempo: 15min15s | Solução/vídeo consultado: não
+# LeetCode: Primeira submissao deu o erro para uma lista de len=1. So coloquei a condicao no inicio e foi. 
+# Complexidade esperada: O(n) | real: O(n)
+
+# v3 - 20/10/26
+# Tempo: 25min estourados
+# Consulta: Nenhuma
+# Resultado: Nao consegui acertar o exercicios novamente. OSSO!
+# Complexidade esperada: O(n) | real: O(n), porem nao funcional
 
 from typing import List
 
@@ -41,33 +50,27 @@ def remove_duplicates_v2(nums: List[int]) -> int:
 
 def remove_duplicates_v3(nums: List[int]) -> int:
     i1, i2 = 1, 1
-    k = 0
 
     while i2 < len(nums):
-        if nums[i2] != nums[i1-1]:
-            i1 += 1
+        if nums[i2] != nums[i2-1]:
             i2 += 1
-            k += 1
+            i1 += 1
         else:
-            while nums[i2] == nums[i1-1]:
+            while nums[i2] == nums[i2-1]:
                 i2 += 1
             nums[i1] = nums[i2]
-            i1 += 1
             i2 += 1
-            k += 1
+            i1 += 1
 
-        return k
+    return i1
             
 
 if __name__ == "__main__":
     lista = [1,2,4,4,4,5,6,6,7,7]
-    lista2 = [1]
+    lista2 = [1,1,2,3,5,5]
     lista3 = [0,0,0,0,0,0]
-    assert remove_duplicates_v2(lista) == 6
-    assert remove_duplicates_v2(lista2) == 1
-    assert remove_duplicates_v2(lista3) == 1
-
-
-# Tempo: 15min15s | Solução/vídeo consultado: não
-# LeetCode: Primeira submissao deu o erro para uma lista de len=1. So coloquei a condicao no inicio e foi. 
-# Complexidade esperada: O(n) | real: O(n)
+    lista4 = [1]
+    assert remove_duplicates_v3(lista) == 6
+    assert remove_duplicates_v3(lista2) == 4
+    assert remove_duplicates_v3(lista3) == 1
+    assert remove_duplicates_v3(lista4) == 1
