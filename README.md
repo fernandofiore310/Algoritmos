@@ -9,6 +9,7 @@ Repositório criado para treinamento de algoritmos de entrevistas de emprego.
 | Saiu sozinho de novo | 2 semanas
 | Saiu sozinho pela terceira vez | 1 mês; depois disso, sai da lista
 
+## Exercícios
 | Problema | Padrão | Data | Resolvido sozinho? | Volta em |
 |---|---|---|---|---|
 | 344 | Dois ponteiros | 06/10 | sim | Segunda - 02/11 |
