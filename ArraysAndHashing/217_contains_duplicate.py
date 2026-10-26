@@ -3,7 +3,6 @@
 # Consulta: Consultei na internet como adiciona um valor a um set
 # Conferencia: Passou no LeetCode, e sim, ele tem que ser O(n) pois vai ser necessario eventualmente percorrer pelo menos parte do array
 
-
 def containsDuplicate(nums):
     s = set()
 
@@ -12,6 +11,26 @@ def containsDuplicate(nums):
             s.add(n)
         else:
             return True
+    return False
+
+# v2
+# Tempo: 5min54s
+# Esperado: O(n) max
+# Consulta: Nao
+# Conferencia: Bateu
+# “Já vi isso antes?”	set	    os elementos vistos
+# “Quantas vezes vi?”	dict	elemento → contagem
+# “Onde vi?”	        dict	elemento → índice
+# “Quem é parecido com quem?”	dict	característica comum → lista de elementos
+
+def containsDuplicate_v2(nums: list[int]) -> bool:
+    s = set()
+
+    for n in nums:
+        if n in s:
+            return True
+        else:
+            s.add(n)
     return False
 
 if __name__ == "__main__":
