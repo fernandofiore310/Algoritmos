@@ -31,10 +31,35 @@ def twoSum_v2(numbers: List[int], target: int) -> List[int]:
         else:
             index2-=1
 
+# v3 - 26/10/26
+# Tempo: 10min
+# Consulta: Nenhuma
+# Resultado: Nao bateu, deu erro em casos que se tem numeros negativos e positivos na mesma lista
+# Complexidade esperada: O(n)
+
+def twoSum_v3(numbers: List[int], target: int) -> List[int]:
+    l = 0
+    r = len(numbers)-1
+
+    while l < r:
+        soma = abs(numbers[r]+numbers[l])
+        if soma > abs(target):
+            r-=1
+        elif soma < abs(target):
+            l+=1
+        else:
+            return [l+1, r+1]
+
 if __name__ == "__main__":
     numbers = [1, 4, 5, 7, 8, 13]
     target = 12
-    assert twoSum_v2(numbers, target) == [2,5]
+    numbers2 = [-2, -5, -8, -12]
+    target2 = -13
+    numbers3 = [-2, -5, -8, -12]
+    target3 = -14
+    assert twoSum_v3(numbers, target) == [2,5]
+    assert twoSum_v3(numbers2, target2) == [2,3]
+    assert twoSum_v3(numbers3, target3) == [1,4]
 
 
 # Tempo: 25min estourados | Solução/vídeo consultado: sim, mas so vi o raciocinio dele, nao vi ele escrevendo o codigo. Escrevi a solucao de cabeca.
