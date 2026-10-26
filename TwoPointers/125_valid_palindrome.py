@@ -48,13 +48,35 @@ def isPalindrome_v2(s : str) -> bool:
             i2 -= 1
     return True
 
+# v3 - 26/10/26
+# Tempo: 10min
+# Consulta: Nenhuma
+# Resultado: Bateu.
+# Complexidade esperada: O(n)
 
+def isPalindrome_v3(s : str) -> bool:
+    s = s.lower()
+    l = 0
+    r = len(s)-1
+
+    while l < r:
+        if s[l].isalnum() and s[r].isalnum():
+            if s[l] == s[r]:
+                l += 1
+                r -= 1
+            else:
+                return False
+        elif not s[l].isalnum():
+            l += 1
+        elif not s[r].isalnum():
+            r -= 1
+    return True
 
 if __name__ == "__main__":
     s = "A man, a plan, a canal: Panama"
     s2 = "Fernando !"
-    assert isPalindrome_v2(s) == True
-    assert isPalindrome_v2(s2) == False
+    assert isPalindrome_v3(s) == True
+    assert isPalindrome_v3(s2) == False
 
 
 # Tempo: 18min14s | Solução/vídeo consultado: não
