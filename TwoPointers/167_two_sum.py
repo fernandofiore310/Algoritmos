@@ -42,10 +42,10 @@ def twoSum_v3(numbers: List[int], target: int) -> List[int]:
     r = len(numbers)-1
 
     while l < r:
-        soma = abs(numbers[r]+numbers[l])
-        if soma > abs(target):
+        soma = numbers[r]+numbers[l]
+        if soma > target:
             r-=1
-        elif soma < abs(target):
+        elif soma < target:
             l+=1
         else:
             return [l+1, r+1]
@@ -53,9 +53,9 @@ def twoSum_v3(numbers: List[int], target: int) -> List[int]:
 if __name__ == "__main__":
     numbers = [1, 4, 5, 7, 8, 13]
     target = 12
-    numbers2 = [-2, -5, -8, -12]
+    numbers2 = [-12, -8, -5, -2]
     target2 = -13
-    numbers3 = [-2, -5, -8, -12]
+    numbers3 = [-12, -8, -5, -2]
     target3 = -14
     assert twoSum_v3(numbers, target) == [2,5]
     assert twoSum_v3(numbers2, target2) == [2,3]
