@@ -28,3 +28,7 @@ Repositório criado para treinamento de algoritmos de entrevistas de emprego.
 | 26 | Dois ponteiros | 20/10 | não | Terça - 27/10 |
 | 49 | Arrays and hashing | 20/10 | não | Terça - 27/10 |
 | 347 | Arrays and hashing | 20/10 | não | Terça - 27/10 |
+| 125 | Dois ponteiros | 26/10 | sim | Segunda - 09/11 |
+| 167 | Dois ponteiros | 26/10 | não | Segunda - 02/11 |
+| 217 | Arrays and Hashing | 26/10 | sim | Segunda - 09/11 |
+| 242 | Arrays and Hashing | 26/10 | sim | Segunda - 09/11 |
