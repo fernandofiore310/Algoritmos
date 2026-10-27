@@ -64,13 +64,30 @@ def remove_duplicates_v3(nums: List[int]) -> int:
 
     return i1
             
+# v4 - 27/10/26
+# Tempo: 10min25s
+# Consulta: Nenhuma
+# Resultado: Bateu
+# Complexidade esperada: O(n) | real: O(n)
+# Fiz no papel e senti que me ajudou.
+
+def remove_duplicates_v4(nums: List[int]) -> int:
+    l, r = 1, 1
+
+    while r < len(nums):
+        if nums[l-1] == nums[r]:
+            r += 1
+        else:
+            nums[l] = nums[r]
+            l += 1
+    return l
 
 if __name__ == "__main__":
     lista = [1,2,4,4,4,5,6,6,7,7]
     lista2 = [1,1,2,3,5,5]
     lista3 = [0,0,0,0,0,0]
     lista4 = [1]
-    assert remove_duplicates_v3(lista) == 6
-    assert remove_duplicates_v3(lista2) == 4
-    assert remove_duplicates_v3(lista3) == 1
-    assert remove_duplicates_v3(lista4) == 1
+    assert remove_duplicates_v4(lista) == 6
+    assert remove_duplicates_v4(lista2) == 4
+    assert remove_duplicates_v4(lista3) == 1
+    assert remove_duplicates_v4(lista4) == 1
