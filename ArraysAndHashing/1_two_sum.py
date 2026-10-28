@@ -23,15 +23,41 @@ def twoSum_v2(nums, target):
         else:
             return [dic[dif], i]
 
+# v3 - 27/10/26
+# Tempo: 15 min estourados
+# Consulta: Nenhuma
+# Resultado: Tentei fazer de cabeca, achei que tinha chegado em algum lugar, mas pelo jeito nao deu em nada.
+# Complexidade esperada: | real: O(n+n) sendo n o len de nums
+# “Já vi isso antes?”	set	    os elementos vistos
+# “Quantas vezes vi?”	dict	elemento → contagem
+# “Onde vi?”	        dict	elemento → índice
+# “Quem é parecido com quem?”	dict	característica comum → lista de elementos
+
+def twoSum_v3(nums, target):
+    d = {}
+    
+    for i, n in enumerate(nums):
+        d[n] = i
+    
+    print(d)
+
+    for i, n in enumerate(nums):
+        diff = target - n
+        if diff in d:
+            if d[diff] > i:
+                return [i, d[diff]]
+            else:
+                return [d[diff], i]
+
 if __name__ == "__main__":
-    nums = [2, 5, 4, 8, 9, 0]
-    target = 2
-    assert twoSum_v2(nums, target) == [0, 5]
+    nums = [3, 2, 4]
+    target = 6
+    assert twoSum_v3(nums, target) == [1, 2]
 
     nums2 = [-1, -3, -2]
     target2 = -3
-    assert twoSum_v2(nums2, target2) == [0, 2]
+    assert twoSum_v3(nums2, target2) == [0, 2]
 
     nums3 = [7, 1, 7]
     target3 = 14
-    assert twoSum_v2(nums3, target3) == [0, 2]
+    assert twoSum_v3(nums3, target3) == [0, 2]
